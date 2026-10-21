@@ -1,0 +1,392 @@
+@import url("https://cdn.jsdelivr.net/gh/KBH-Reeper/GlassFin@latest/Theme/GlassFin-Theme-latest-stable.css");
+
+/* ===== ElegantFin-style header ===== */
+.MuiAppBar-root {
+  background: rgba(15, 12, 30, 0.55) !important;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* ===== Floating pill header ===== */
+.MuiAppBar-root,
+.MuiAppBar-root .MuiToolbar-root {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.MuiAppBar-root::before,
+.MuiAppBar-root::after {
+  display: none !important;
+}
+
+/* Floating glass pills (skips the Raeflix logo) */
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root:not([href="#/"]) {
+  border-radius: 999px !important;
+  padding: 6px 16px !important;
+  margin: 0 4px;
+  background: rgba(20, 16, 40, 0.45) !important;
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  text-transform: none;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root:not([href="#/"]):hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Right-hand icons: no outline, soft hover only */
+.MuiAppBar-root .MuiIconButton-root {
+  border-radius: 999px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.MuiAppBar-root .MuiIconButton-root:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
+/* Keep the logo text readable over bright artwork */
+.MuiAppBar-root a[href="#/"] {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+/* Right-hand icons: soft rounded hover */
+.MuiAppBar-root .MuiIconButton-root {
+  border-radius: 12px !important;
+}
+.MuiAppBar-root .MuiIconButton-root:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* ===== Header position ===== */
+.MuiAppBar-root > .MuiToolbar-root:first-child {
+  padding-top: 14px !important;    /* moves the header down */
+  padding-left: 28px !important;   /* moves the logo and pills left */
+  padding-right: 28px !important;  /* matching gap on the right-hand icons */
+}
+
+/* ===== Header fade on scroll ===== */
+html .MuiAppBar-root { isolation: isolate; }
+html .MuiAppBar-root::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  inset: 0 0 -70px 0;
+  background: linear-gradient(to bottom,
+      rgba(28, 15, 48, 0.98) 0%,
+      rgba(28, 15, 48, 0.95) 55%,
+      rgba(28, 15, 48, 0.80) 70%,
+      rgba(28, 15, 48, 0.45) 85%,
+      rgba(28, 15, 48, 0) 100%);
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+html.rf-scrolled .MuiAppBar-root::before { opacity: 1; }
+
+@import url("https://cdn.jsdelivr.net/gh/KBH-Reeper/GlassFin@main/Theme/PluginStyling/MediaBar-Plugin-latest.css");
+
+@import url("https://cdn.jsdelivr.net/gh/KBH-Reeper/GlassFin@latest/Theme/Styling/ActivatePosterButtons.css");
+
+@import url("https://cdn.jsdelivr.net/gh/KBH-Reeper/GlassFin@latest/Theme/Styling/PosterButtons/AltButtonPlacement.css");
+
+/* ===== Raeflix dark purple base ===== */
+:root {
+  --darkerGradientPoint: #12081f;
+  --lighterGradientPoint: #1c0f30;
+  --darkerGradientPointAlpha: rgba(18, 8, 31, 0.85);
+  --lighterGradientPointAlpha: rgba(34, 18, 56, 0.85);
+  --gradientPointAlpha: rgba(34, 18, 56, 0.3);
+  --headerColor: rgba(30, 16, 48, 0.8);
+  --drawerColor: rgba(30, 16, 48, 0.9);
+  --borderColor: hsl(270, 15%, 30%);
+  --tableBodyColor: rgb(30 18 48 / 1);
+}
+
+/* GlassFin hard-codes navy here, so override it too */
+.backgroundContainer.withBackdrop {
+  background: linear-gradient(0deg, var(--darkerGradientPoint), 10%, rgba(18, 8, 31, 0.25)) !important;
+}
+.layout-tv .backgroundContainer.withBackdrop {
+  background: linear-gradient(0deg, var(--darkerGradientPoint), 45%, rgba(18, 8, 31, 0.95)) !important;
+}
+
+
+/* ===== Raeflix accent colour ===== */
+:root,
+[data-theme="dark"] {
+  --jf-palette-primary-main: #6D28D9 !important;
+  --jf-palette-primary-light: #8B5CF6 !important;
+  --jf-palette-primary-dark: #4C1D95 !important;
+  --jf-palette-primary-mainChannel: 109 40 217 !important;
+}
+
+/* Older-style buttons, sliders and progress bars */
+.button-submit,
+.raised.button-submit,
+.emby-button.button-submit {
+  background-color: #6D28D9 !important;
+}
+.itemProgressBarForeground,
+.playbackProgress,
+.mdl-slider-background-lower {
+  background-color: #6D28D9 !important;
+}
+.emby-checkbox:checked + span::before,
+.emby-tab-button-active,
+.navMenuOption-selected {
+  color: #6D28D9 !important;
+  border-color: #6D28D9 !important;
+}
+
+/* Purple outline on the login buttons */
+#loginPage .emby-button,
+#loginPage button {
+  border-color: rgba(109, 40, 217, 0.6) !important;
+}
+#loginPage .emby-button:hover,
+#loginPage button:hover {
+  background-color: rgba(109, 40, 217, 0.25) !important;
+}
+
+/* ===== Raeflix login page background ===== */
+#loginPage {
+  background: linear-gradient(rgba(10,10,20,0.75), rgba(10,10,20,0.9)),
+              url("https://raw.githubusercontent.com/arae11/raeflix-assets/main/raeflix-login-background-3840x2160.png") center / cover no-repeat fixed !important;
+}
+
+/* ===== Raeflix login logo (ElegantFin) ===== */
+#loginPage h1 {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+#loginPage h1::before {
+  content: "" !important;
+  display: block !important;
+  width: 320px !important;
+  height: 90px !important;
+  margin: 0 auto 0.75em !important;
+  background: url("https://raw.githubusercontent.com/arae11/raeflix-assets/main/raeflix-banner-transparent-2962x1000.png") no-repeat center / contain !important;
+  font-size: 0 !important;
+}
+
+/* Login page covers the area under the transparent header */
+#loginPage {
+  position: fixed !important;
+  inset: 0;
+  overflow-y: auto;
+}
+
+/* ===== Wider login card: more users per row ===== */
+#loginPage .padded-left.padded-right.padded-bottom-page {
+  width: 90% !important;
+  max-width: 1000px !important;
+}
+
+/* Fixed-size user tiles instead of ElegantFin's 30% (3 per row) */
+#loginPage #divUsers .squareCard {
+  width: 150px !important;
+  max-width: 150px !important;
+}
+
+/* Keep the buttons a sensible width */
+#loginPage .emby-button,
+#loginPage button:not(.card) {
+  max-width: 420px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Logo centred between card top and "Please sign in" */
+#loginPage .visualLoginForm h1 {
+  margin-top: 0 !important;
+}
+#loginPage h1::before {
+  margin: 0 auto 32px !important;
+}
+
+/* ===== Rounded highlight on login user tiles ===== */
+#loginPage #divUsers .squareCard,
+#loginPage #divUsers .squareCard .cardBox,
+#loginPage #divUsers .squareCard .cardScalable,
+#loginPage #divUsers .squareCard .cardImageContainer {
+  border-radius: 14px !important;
+}
+
+/* Clip the highlight so nothing pokes out past the corners */
+#loginPage #divUsers .squareCard {
+  overflow: hidden !important;
+}
+
+/* Optional: softer purple glow instead of a solid block */
+#loginPage #divUsers .squareCard:hover,
+#loginPage #divUsers .squareCard:focus,
+#loginPage #divUsers .squareCard:focus-visible {
+  background-color: rgba(109, 40, 217, 0.18) !important;
+  box-shadow: 0 0 0 2px #6D28D9 !important;
+  outline: none !important;
+}
+
+/* ===== Violet focus outlines, checkboxes and highlights ===== */
+input:focus,
+.emby-input:focus,
+.emby-select:focus,
+textarea:focus {
+  border-color: #6D28D9 !important;
+  box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.35) !important;
+  outline: none !important;
+}
+.inputLabelFocused,
+.selectLabelFocused {
+  color: #8B5CF6 !important;
+}
+.emby-checkbox:checked + span + .checkboxOutline,
+.emby-checkbox:checked + span::before,
+.checkboxOutline {
+  border-color: #6D28D9 !important;
+}
+.emby-checkbox:checked + span + .checkboxOutline {
+  background-color: #6D28D9 !important;
+}
+::selection {
+  background: rgba(109, 40, 217, 0.4);
+}
+
+/* ===== Smoother media bar fade (backdrop image only) ===== */
+#slides-container .slide .backdrop-container {
+  -webkit-mask-image: linear-gradient(to bottom,
+      #000 0%, #000 30%,
+      rgba(0,0,0,0.75) 45%,
+      rgba(0,0,0,0.45) 60%,
+      rgba(0,0,0,0.2) 75%,
+      rgba(0,0,0,0.05) 90%,
+      transparent 100%) !important;
+  mask-image: linear-gradient(to bottom,
+      #000 0%, #000 30%,
+      rgba(0,0,0,0.75) 45%,
+      rgba(0,0,0,0.45) 60%,
+      rgba(0,0,0,0.2) 75%,
+      rgba(0,0,0,0.05) 90%,
+      transparent 100%) !important;
+}
+
+/* ===== Media bar: line up Info / Play / Trailer / Favourite ===== */
+#slides-container .button-container {
+  display: flex !important;
+  align-items: center !important;
+}
+#slides-container .button-container > * {
+  align-self: center !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  vertical-align: middle;
+}
+
+/* ===== Details page: info + quality boxes side by side ===== */
+:has(> .itemDetailsGroup):has(> .trackSelections) {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  align-items: start;
+}
+:has(> .itemDetailsGroup):has(> .trackSelections) > * {
+  grid-column: 1 / -1;            /* everything else stays full width */
+}
+:has(> .itemDetailsGroup):has(> .trackSelections) > .itemDetailsGroup { grid-column: 1; }
+:has(> .itemDetailsGroup):has(> .trackSelections) > .trackSelections  { grid-column: 2; }
+
+/* Put values next to their labels instead of pushed to the far right */
+.itemDetailsGroup .detailsGroupItem {
+  justify-content: flex-start !important;
+}
+.itemDetailsGroup .detailsGroupItem .label {
+  min-width: 90px;
+}
+
+/* Right-hand box: match the left-hand page margin */
+:has(> .itemDetailsGroup):has(> .trackSelections) > .trackSelections {
+  margin-right: 3.3vw;
+}
+
+.rf-cast-arrows { display: none !important; }
+
+/* ===== Overlay arrows on all scrolling rows ===== */
+.rf-scroll {
+  overflow-x: auto !important;
+  scrollbar-width: none;
+}
+.rf-scroll::-webkit-scrollbar { display: none; }
+
+/* Hide Jellyfin's own prev/next arrows inside rows that use the overlay arrows */
+.rf-scroll-host button[data-direction],
+.rf-scroll-host button[title="Previous"],
+.rf-scroll-host button[title="Next"],
+.rf-scroll-host .emby-scrollbuttons,
+.rf-scroll-host [is="emby-scrollbuttons"] {
+  display: none !important;
+}
+
+.rf-arrow {
+  position: absolute;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(20, 16, 40, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 28px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 4px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, background .2s, transform .2s;
+}
+.rf-scroll-host:hover > .rf-arrow:not(.rf-hidden) {
+  opacity: 0.85;
+  pointer-events: auto;
+}
+.rf-arrow:hover {
+  opacity: 1 !important;
+  background: rgba(124, 58, 237, 0.75);
+  transform: translateY(-50%) scale(1.08);
+}
+/* Phones/tablets just swipe */
+@media (hover: none) { .rf-arrow { display: none !important; } }
+
+/* End-of-row spacer (width is set by the script) */
+.rf-spacer {
+  display: inline-block;
+  flex: 0 0 auto;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* ===== Fade cards out as they slide into the side margins ===== */
+.rf-scroll {
+  -webkit-mask-image: linear-gradient(to right,
+      transparent var(--rf-l0, 0px), #000 var(--rf-l1, 0px),
+      #000 calc(100% - var(--rf-r1, 0px)), transparent calc(100% - var(--rf-r0, 0px)));
+  mask-image: linear-gradient(to right,
+      transparent var(--rf-l0, 0px), #000 var(--rf-l1, 0px),
+      #000 calc(100% - var(--rf-r1, 0px)), transparent calc(100% - var(--rf-r0, 0px)));
+}
